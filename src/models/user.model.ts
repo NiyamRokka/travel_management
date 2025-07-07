@@ -1,0 +1,56 @@
+import {Schema,model} from 'mongoose'
+import {gender,Role} from '../types/enum.types'
+
+
+const userSchema = new Schema({
+    FirstName:{
+        type:String,
+        required:[true,'First Name is required'],
+        trim:true,
+    },
+
+    LastName:{
+        type:String,
+        required:[true,'Last Name is required'],
+        trim:true,
+    },
+
+    email:{
+        type:String,
+        required:[true,'Email is required'],
+        trim:true,
+        unique: [true,'Email already registered, would you like to login?']
+    },
+
+    password:{
+        type:String,
+        required:[true,'Minimum of 4 character is required'],
+        min: 4,
+    },
+
+    Role:{
+        type:String,
+        enum:Object.values(Role),
+        default:Role.user
+    },
+
+    Phone_number:{
+        type:String,  
+    },
+
+    gender: {
+        type:String,
+        enum:Object.values(gender),
+        default:gender.rathernotsay,
+    },
+
+
+
+},{timestamps:true})
+
+
+const User = model('user',userSchema)
+
+export default User;
+
+
