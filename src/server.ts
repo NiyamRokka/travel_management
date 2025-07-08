@@ -2,6 +2,7 @@ import 'dotenv/config'
 import express, { NextFunction, Request, Response } from 'express'
 import { connectDatabase } from './config/database.config'
 import authRoutes from './routes/auth.routes'
+import userRoutes from './routes/user.routes'
 import CustomError, { ErrorHandller } from './middlewares/error.middleware'
 
 const PORT = process.env.PORT || 8080
@@ -30,7 +31,7 @@ app.get('/',(req,res)=>{
 
 // using routes
 app.use('/api/auth',authRoutes)
-
+app.use('/api/user',userRoutes)
 
 //fallback route
 app.all('/{*abc}',(req:Request,res:Response,next:NextFunction)=>{

@@ -2,15 +2,16 @@ import { NextFunction, Request, Response } from "express";
 // import { model } from "mongoose";
 import User from "../models/user.model";
 import { comparePassword, hashPassword } from "../utils/bcrypt.utils";
+import CustomError from "../middlewares/error.middleware";
 
 export const Registered= async(req:Request,res:Response,next:NextFunction)=>{
     try{
-        const {FirstName,LastName,email,password,Phone_number,gender} = req.body
+        const {firstName,lastName,email,password,phone_number,gender} = req.body
 
         if (!password){
             throw new Error('Password is required')
         }
-        const user = new User({FirstName,LastName,email,password,Phone_number,gender})
+        const user = new User({firstName,lastName,email,password,phone_number,gender})
         
         const hashedpassword = await hashPassword(password)
 
@@ -67,4 +68,3 @@ export const Login = async(req:Request,res:Response,next:NextFunction) =>{
         next(error)
     }
 }
-

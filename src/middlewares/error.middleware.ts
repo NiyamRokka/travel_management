@@ -2,10 +2,10 @@ import { NextFunction, Request, Response } from "express";
 
 class CustomError extends Error {
     statusCode:number
-    status:string;
+    status:'success'|'fail'|'error'
     success:boolean;
     isOperational:boolean;
-    constructor(readonly message:string ,protected readonly statuscode:number){
+    constructor(message:string , statuscode:number){
         super(message);
 
         this.statusCode = statuscode;

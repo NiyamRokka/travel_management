@@ -3,13 +3,13 @@ import {gender,Role} from '../types/enum.types'
 
 
 const userSchema = new Schema({
-    FirstName:{
+    firstName:{
         type:String,
         required:[true,'First Name is required'],
         trim:true,
     },
 
-    LastName:{
+    lastName:{
         type:String,
         required:[true,'Last Name is required'],
         trim:true,
@@ -28,13 +28,13 @@ const userSchema = new Schema({
         min: 4,
     },
 
-    Role:{
+    role:{
         type:String,
         enum:Object.values(Role),
         default:Role.user
     },
 
-    Phone_number:{
+    phone_number:{
         type:String,  
     },
 
