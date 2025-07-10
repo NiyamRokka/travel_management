@@ -46,3 +46,7 @@ app.listen(PORT,()=>{
 
 
 app.use(ErrorHandller)
+
+// delete user only able by admin(role)
+
+

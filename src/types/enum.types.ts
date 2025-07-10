@@ -5,7 +5,7 @@ export enum gender{
     rathernotsay = 'Rather Not Say'
 }
 
-export enum Role{
+export enum role{
     user = 'User',
     admin = 'Admin',
     super_admin = 'Super Admin'

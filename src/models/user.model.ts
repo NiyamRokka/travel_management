@@ -1,5 +1,5 @@
 import {Schema,model} from 'mongoose'
-import {gender,Role} from '../types/enum.types'
+import {gender,role} from '../types/enum.types'
 
 
 const userSchema = new Schema({
@@ -30,8 +30,8 @@ const userSchema = new Schema({
 
     role:{
         type:String,
-        enum:Object.values(Role),
-        default:Role.user
+        enum:Object.values(role),
+        default:role.user,
     },
 
     phone_number:{
