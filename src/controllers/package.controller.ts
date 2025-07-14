@@ -54,22 +54,22 @@ export const delPackage = asyncHandler(async(req:Request,res:Response,next:NextF
 
 
 export const updPackage = asyncHandler(async(req:Request,res:Response,next:NextFunction)=>{
-      const {start_date,end_date,seats_available} = req.body
+      const {start_date,end_date,seats_available,plans} = req.body
         const {id} = req.params
-        const packager = await Package.findByIdAndUpdate({id,},{start_date,end_date,seats_available},{new:true})
+        const packager = await Package.findByIdAndUpdate(id,{start_date,end_date,seats_available,plans:JSON.parse(plans)},{new:true,reValidate:true})
         console.log(packager)
             
         if (!packager){
             throw new CustomError('Package Not Found',404)
         }
-    
-         res.status(200).json({
-              message:"Package Updated Successfully",
-             status:"Success",
-              success:true,
-             data: packager,
-            })
+        
+        res.status(200).json({
+            message:"Package Updated Successfully",
+            status:"Success",
+            success:true,
+            data: packager,
         })
+    })
 
 
 
