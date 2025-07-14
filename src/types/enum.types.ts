@@ -11,9 +11,10 @@ export enum role{
     super_admin = 'Super Admin'
 }
 
-
-
-
+export enum Package_Charge{
+    PER_DAY = 'PER_DAY',
+    PER_PERSON ='PER_PERSON',   
+}
 
 
 
