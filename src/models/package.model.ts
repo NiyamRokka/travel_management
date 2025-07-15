@@ -7,6 +7,13 @@ const packageSchema = new Schema({
         required:[true,'Title is required'],
         trim:true,
     },
+    cover_image:{
+        type:String,
+        required:[true,"Cover image is required"]
+    },
+    images:[{
+        type:String,
+    }],
     plans:[
         {
             location:{

@@ -34,6 +34,8 @@ app.get('/',(req,res)=>{
 app.use('/api/auth',authRoutes)
 app.use('/api/user',userRoutes)
 app.use('/api/package',packageRoutes)
+// app.use(express.static('public')); 
+
 
 //fallback route
 app.all('/{*abc}',(req:Request,res:Response,next:NextFunction)=>{
